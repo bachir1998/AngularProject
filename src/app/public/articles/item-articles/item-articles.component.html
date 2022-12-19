@@ -5,7 +5,7 @@
             <h3 class="mb-0">{{ article.name }}</h3>
             <div class="mb-1 text-muted">{{article.created_at | date:'medium'}}</div>
             <p class="card-text mb-auto">{{ article.description | slice:0:100}}.........</p>
-            <p class="position-btn"><a href="['/articles',article.id]" class="btn btn-primary position-bottom">Plus details</a>
+            <p class="position-btn"><a [routerLink]="['/articles',article.id]" class="btn btn-primary position-bottom">Plus details</a>
             <!--<a href="#"  class="stretched-link">Plus de détails</a>-->
         </div>
         <div class="col-auto d-none d-lg-block">

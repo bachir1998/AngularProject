@@ -6,6 +6,7 @@ import { HomeComponent } from './public/home/home.component';
 import { LoginComponent } from './public/login/login.component';
 import { BackOfficeComponent } from './protected/back-office/back-office.component';
 import { AuthGuard } from './utils/auth.guard';
+import { DetailsArticleComponent } from './public/articles/details-article/details-article.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: '', component: LayoutComponent, children:[
       {path:'', component: HomeComponent},
       {path:'articles', component: ArticlesComponent},
+      {path : 'articles/:id', component : DetailsArticleComponent},
       {path : 'login', component: LoginComponent},
     ]},
     {path : 'admin', component: BackOfficeComponent, canActivate:[AuthGuard]}

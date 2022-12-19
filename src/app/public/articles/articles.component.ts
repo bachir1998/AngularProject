@@ -17,7 +17,7 @@ export class ArticlesComponent {
 
   }
   ngOnInit(): void {
-    this.articles = this.articleService.getTable();
+    this.articles = this.articleService.getArticles();
 
   }
 

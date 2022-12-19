@@ -16,7 +16,7 @@ export class HomeComponent {
   }
   ngOnInit(): void {
   //  this.articles = this.articleService.getTable();
-    this.articleService.getTable().subscribe((data)=>(this.articles=data));
+    this.articleService.getArticles().subscribe((data)=>(this.articles=data));
 
   }
 

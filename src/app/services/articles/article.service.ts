@@ -14,11 +14,20 @@ export class ArticleService {
   constructor(private httpClient : HttpClient){ }
 
 
-    getTable(): Observable<Article[]> {
+    getArticles(): Observable<Article[]> {
       const headers = new HttpHeaders().set('apikey', environment.api.key);
       return this.httpClient.get<Article[]>(environment.api.url + 'article', {
         headers: headers,
       });
     }
+
+    getArticleID(id:number): Observable<Article[]>{
+      const headers = new HttpHeaders().set('apikey', environment.api.key);
+      return this.httpClient.get<Article[]>(environment.api.url + 'article?id=eq.'+id, {
+        headers: headers,
+      });
+
+    }
+
 
 }
