@@ -1,0 +1,13 @@
+<main class="container">
+   <h1 class="titre">Articles</h1>
+    <br/>
+
+    <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+     
+         <div class="row mb-2">
+            <app-item-articles  class="col-md-6"  *ngFor="let article of articles | async" [article]="article"></app-item-articles>   
+        </div><!-- /.row -->
+    </div>
+</main>
