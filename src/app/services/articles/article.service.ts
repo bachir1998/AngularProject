@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { Article } from 'src/app/models/article';
 import { environment } from 'src/environments/environment';
 
@@ -29,5 +29,9 @@ export class ArticleService {
 
     }
 
+    addArticle(credentials: {name?: string | null | undefined, description?: string | null | undefined,categorie?: string | null | undefined,url?: string | null | undefined}): Observable<Article> {
+      const headers = new HttpHeaders().set('apikey', environment.api.key);
+      return this.httpClient.post<Article>(environment.api.url + 'article', credentials, {headers: headers})
+    }
 
 }

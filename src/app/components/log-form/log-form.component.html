@@ -7,7 +7,7 @@
       <label for="email">Email address</label>
     </div>
     <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
-      <div *ngIf="loginForm.controls['email'].errors?.['required']">
+      <div *ngIf="loginForm.controls['email'].errors?.['required'] " style="color: red;">
           Please enter an e-mail
 
       </div>

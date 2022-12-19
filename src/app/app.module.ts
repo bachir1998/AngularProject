@@ -9,13 +9,17 @@ import { ItemArticlesComponent } from './public/articles/item-articles/item-arti
 import { LayoutComponent } from './public/layout/layout.component';
 import { NavbarComponent } from './public/layout/navbar/navbar.component';
 import { FooterComponent } from './public/layout/footer/footer.component';
-import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { DashboardComponent } from './protected/dashboard/dashboard.component';
 import { LoginComponent } from './public/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LogFormComponent } from './components/log-form/log-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackOfficeComponent } from './protected/back-office/back-office.component';
 import { DetailsArticleComponent } from './public/articles/details-article/details-article.component';
+import { NewArticleComponent } from './protected/new-article/new-article.component';
+import { NavbarBoComponent } from './protected/back-office/navbar-bo/navbar-bo.component';
+import { FooterBoComponent } from './protected/back-office/footer-bo/footer-bo.component';
+import { HomeAdminComponent } from './protected/back-office/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { DetailsArticleComponent } from './public/articles/details-article/detai
     LogFormComponent,
     BackOfficeComponent,
     DetailsArticleComponent,
+    NewArticleComponent,
+    NavbarBoComponent,
+    FooterBoComponent,
+    HomeAdminComponent,
   ],
   imports: [
     BrowserModule,

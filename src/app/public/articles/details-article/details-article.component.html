@@ -1,22 +1,25 @@
 <main>
 
-    <div class="container marketing">
+    <div class="container marketing" >
   
       
       <hr class="featurette-divider">
   
-      <div class="row featurette" *ngFor="let article of article">
+      <div class="row featurette" *ngIf="article">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">{{article.name}}<span class="text-muted">{{article.categorie}}</span></h2>
+          <h3 class="featurette-heading fw-normal lh-1"><span class="text-muted">{{article.categorie}}</span><br/>{{article.name}}</h3>
+          <p class="lead">Publié le : {{article.created_at | date:'medium'}}</p>
           <p class="lead">{{article.description}}</p>
         </div>
         <div class="col-md-5 order-md-1">
-          <img [src]='article.url' class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"/>
-  
+          <img [src]='article.url' class="bd-placeholder-img" width="400" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+
         </div>
       </div>
   
-      
+      <h2 style="text-align: center;"  *ngIf="!article">Aucun article n'a été trouvé pour cet id. </h2>
   
     </div><!-- /.container -->
+
+    
 </main>  

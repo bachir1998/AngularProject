@@ -1,0 +1,31 @@
+<main class="form-signin w-100 m-auto">
+    <form [formGroup]="ArticleForm" (ngSubmit)="onSubmit()">
+      <h1 class="h3 mb-3 fw-normal">Add Article</h1>
+  
+      <div class="form-floating">
+        <input type="text" formControlName="name" class="form-control" id="floatingInput" placeholder="nom de l'article">
+        <label for="name">Nom de l'article</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text" formControlName="description" class="form-control" id="floatingInput" placeholder="description de l'article">
+        <label for="description">Description de l'article</label>
+      </div>
+
+      
+      <div class="form-floating">
+        <input type="text" class="form-control" formControlName="url"  id="floatingPassword" placeholder="url de l'image">
+        <label for="url">Url de l'image</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="text" formControlName="categorie" class="form-control" id="floatingInput" placeholder="catégorie de l'article">
+        <label for="categorie">Catégorie de l'article</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-dark" type="submit" [disabled]="!ArticleForm.valid">Sign in</button>
+   
+    </form>
+  
+</main>
+  

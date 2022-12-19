@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-back-office',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./back-office.component.scss']
 })
 export class BackOfficeComponent {
+
+  constructor(private userService : UserService,private router :Router){}
+  
+
+  logout(){
+    this.userService.isLogout();
+    this.router.navigateByUrl('login')
+  }
+  
+
 
 }

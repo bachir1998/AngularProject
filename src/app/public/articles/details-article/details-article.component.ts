@@ -10,20 +10,23 @@ import { ArticleService } from 'src/app/services/articles/article.service';
 })
 export class DetailsArticleComponent {
 
-  article : Article[] | undefined;
+  article : Article | undefined;
 
 
   constructor(private articleService : ArticleService, private route: ActivatedRoute){};
   ngOnInit(): void {
-   
     this.route.params.subscribe(
-     // (params)=> this.hero=this.heroService.getHeroID(params['id']);
-
-      (params)=> this.articleService.getArticleID(params['id']).subscribe((data)=>( this.article = data))
-
-      
+      (params) => {
+        this.articleService.getArticleID(params['id']).subscribe(
+          (data)=> {
+            if(data.length>0){
+              this.article=data[0]
+            }
+            
+          }
+        )
+      }
     )
-
+    
   }
-
 }
