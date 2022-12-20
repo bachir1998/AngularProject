@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Article } from 'src/app/models/article';
+import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/articles/article.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ArticleService } from 'src/app/services/articles/article.service';
   styleUrls: ['./details-article-admin.component.scss']
 })
 export class DetailsArticleAdminComponent implements OnInit {
-
+  showMsg: boolean = false;
   id = 0;
 
   ArticleForm = new FormGroup({
@@ -22,7 +22,7 @@ export class DetailsArticleAdminComponent implements OnInit {
     categorie: new FormControl('', Validators.required)
   })
 
-  constructor(private articleService: ArticleService, private router: ActivatedRoute) { }
+  constructor(private articleService: ArticleService, private router: ActivatedRoute,private routerUrl :Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.router.params.subscribe((param) => {
@@ -41,6 +41,11 @@ export class DetailsArticleAdminComponent implements OnInit {
       next: (data) => {
 
         console.log(data)
+        this.showMsg=true;
+
+          if(this.showMsg){
+            this.success()
+          }
 
       },
       error: (error) => {
@@ -49,6 +54,12 @@ export class DetailsArticleAdminComponent implements OnInit {
     })
 
 
+  }
+
+  success(): void {
+    if(this.toastr.success('Modification de  l\'article réalisée avec succès ')){
+       this.routerUrl.navigateByUrl('admin')
+    }
   }
 
 }

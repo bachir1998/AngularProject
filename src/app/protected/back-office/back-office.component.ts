@@ -12,10 +12,6 @@ export class BackOfficeComponent {
   constructor(private userService : UserService,private router :Router){}
   
 
-  logout(){
-    this.userService.isLogout();
-    this.router.navigateByUrl('login')
-  }
   
 
 

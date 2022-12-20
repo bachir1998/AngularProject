@@ -10,20 +10,5 @@ import { ArticleService } from 'src/app/services/articles/article.service';
 })
 export class HomeAdminComponent {
 
-  articles : Article []= [];
   
-  constructor(private articleService: ArticleService,private router:Router) {
-
-  }
-  ngOnInit(): void {
-  //  this.articles = this.articleService.getTable();
-    this.articleService.getArticles().subscribe((data)=>(this.articles=data));
-
-  }
-
-  onDelete(id :number){
-    if(this.articleService.deleteArticle(id).subscribe())
-    window.location.reload();
-  }
-
 }

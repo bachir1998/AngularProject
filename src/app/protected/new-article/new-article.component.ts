@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/articles/article.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-article',
@@ -10,6 +10,9 @@ import { ArticleService } from 'src/app/services/articles/article.service';
   styleUrls: ['./new-article.component.scss']
 })
 export class NewArticleComponent {
+
+  showMsg: boolean = false;
+
 
   ArticleForm = new FormGroup({
 
@@ -20,15 +23,21 @@ export class NewArticleComponent {
    
   })
 
-  constructor(private articleService: ArticleService, private router : Router){}
+  constructor(private articleService: ArticleService,private router :Router,private toastr: ToastrService){}
   
   onSubmit(){
     console.log(this.ArticleForm.value)
     let credentials = {...this.ArticleForm.value}
     this.articleService.addArticle(credentials).subscribe({
+      
       next: (data) => {
+           console.log(data)
+          // this.ArticleForm.reset()   
+          this.showMsg=true;
 
-        console.log(data)
+          if(this.showMsg){
+            this.success()
+          }
        
       },
       error: (error) => {
@@ -40,18 +49,9 @@ export class NewArticleComponent {
   }
 
 
-
-  /*article : Article;
-
-  
-  
-  
-  constructor(private articleService: ArticleService) {}
-
-  ngOnInit(): void {
-
-    this.articleService.addArticle(this.article).subscribe()
-
-  }*/
-
+  success(): void {
+    if(this.toastr.success('Ajout d\'article réalisé avec succès ')){
+       this.router.navigateByUrl('admin')
+    }
+  }
 }

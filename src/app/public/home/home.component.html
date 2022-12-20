@@ -1,36 +1,15 @@
 <main class="container">
-    <div class="bg-light p-5 rounded">
-        
-        <div class="row">    
-
-            <div class="col-md-6">
-            <h1>Présentation du blog</h1>
-            <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-            </div>
-
-            
-            <div class="col-md-6">
-            <img   src="/assets/images/blog.jpg" class="card-img-top " alt="...">
-            
-            </div>
-
-        
-        </div>
-
-    </div>
-
-
+    
+    <app-header></app-header>
     <br/> <br/>
     <h1 class="titre">Les derniers articles</h1>
     <br/>
 
     <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
-     
-         <div class="row mb-2">
+        <div class="row mb-2">
             <app-item-articles  class="col-md-6"  *ngFor="let article of articles" [article]="article"></app-item-articles>   
-        </div><!-- /.row -->
+        </div>
 
         <p class="position-btn"><a href="/articles" class="btn btn-success position-bottom">Voir plus d'articles</a>
             

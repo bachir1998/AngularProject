@@ -39,9 +39,9 @@ export class ArticleService {
       return this.httpClient.patch<Article>(environment.api.url + 'article?id=eq.'+id,credentials, {headers: headers})
     }
 
-    deleteArticle(id:number): Observable<Article>{
+    deleteArticle(id:number){
       const headers = new HttpHeaders().set('apikey', environment.api.key);
-      return this.httpClient.delete<Article>(environment.api.url + 'article?id=eq.'+id, {
+      return this.httpClient.delete(environment.api.url + 'article?id=eq.'+id, {
         headers: headers,
       });
 

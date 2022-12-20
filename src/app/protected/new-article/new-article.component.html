@@ -7,15 +7,36 @@
         <label for="name">Nom de l'article</label>
       </div>
 
+      <div *ngIf="ArticleForm.controls['name'].invalid && ArticleForm.controls['name'].touched">
+        <div *ngIf="ArticleForm.controls['name'].errors?.['required'] " style="color: red;">
+            Entrer un nom svp
+  
+        </div>
+      </div>
+
       <div class="form-floating">
-        <input type="text" formControlName="description" class="form-control" id="floatingInput" placeholder="description de l'article">
+        <textarea type="text" formControlName="description" class="form-control" id="floatingInput" placeholder="description de l'article"></textarea>
         <label for="description">Description de l'article</label>
+      </div>
+
+      <div *ngIf="ArticleForm.controls['description'].invalid && ArticleForm.controls['description'].touched">
+        <div *ngIf="ArticleForm.controls['description'].errors?.['required'] " style="color: red;">
+            Entrer une description svp
+  
+        </div>
       </div>
 
       
       <div class="form-floating">
-        <input type="text" class="form-control" formControlName="url"  id="floatingPassword" placeholder="url de l'image">
+        <textarea type="text" class="form-control" formControlName="url"  id="floatingPassword" placeholder="url de l'image"></textarea>
         <label for="url">Url de l'image</label>
+      </div>
+
+      <div *ngIf="ArticleForm.controls['url'].invalid && ArticleForm.controls['url'].touched">
+        <div *ngIf="ArticleForm.controls['url'].errors?.['required'] " style="color: red;">
+            Entrer un url svp
+  
+        </div>
       </div>
 
       <div class="form-floating">
@@ -23,6 +44,15 @@
         <label for="categorie">Catégorie de l'article</label>
       </div>
 
+      <div *ngIf="ArticleForm.controls['categorie'].invalid && ArticleForm.controls['categorie'].touched">
+        <div *ngIf="ArticleForm.controls['categorie'].errors?.['required'] " style="color: red;">
+            Entrer la catégorie de l'article  svp
+  
+        </div>
+      </div>
+
+      
+      
       <button class="w-100 btn btn-lg btn-dark" type="submit" [disabled]="!ArticleForm.valid"> Ajouter </button>
    
     </form>

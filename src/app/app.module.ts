@@ -9,7 +9,6 @@ import { ItemArticlesComponent } from './public/articles/item-articles/item-arti
 import { LayoutComponent } from './public/layout/layout.component';
 import { NavbarComponent } from './public/layout/navbar/navbar.component';
 import { FooterComponent } from './public/layout/footer/footer.component';
-import { DashboardComponent } from './protected/dashboard/dashboard.component';
 import { LoginComponent } from './public/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LogFormComponent } from './components/log-form/log-form.component';
@@ -21,6 +20,9 @@ import { NavbarBoComponent } from './protected/back-office/navbar-bo/navbar-bo.c
 import { FooterBoComponent } from './protected/back-office/footer-bo/footer-bo.component';
 import { HomeAdminComponent } from './protected/back-office/home-admin/home-admin.component';
 import { DetailsArticleAdminComponent } from './protected/details-article-admin/details-article-admin.component';
+import { TableArticleComponent } from './protected/table-article/table-article.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HeaderComponent } from './public/header/header.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,6 @@ import { DetailsArticleAdminComponent } from './protected/details-article-admin/
     LayoutComponent,
     NavbarComponent,
     FooterComponent,
-    DashboardComponent,
     LoginComponent,
     LogFormComponent,
     BackOfficeComponent,
@@ -41,12 +42,15 @@ import { DetailsArticleAdminComponent } from './protected/details-article-admin/
     FooterBoComponent,
     HomeAdminComponent,
     DetailsArticleAdminComponent,
+    TableArticleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

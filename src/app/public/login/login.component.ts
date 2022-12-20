@@ -8,7 +8,8 @@ import { UserService } from 'src/app/services/users/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+  showMsg: boolean = false;
+  
   constructor(private userService: UserService, private router : Router){}
 
   onSubmit(credentials : any){
@@ -16,7 +17,7 @@ export class LoginComponent {
     console.log("parent",credentials)
     this.userService.login(credentials).subscribe({
       next: (data) => {
-
+        this.showMsg=false;
         console.log(data)
         localStorage.setItem('token',data['access_token'])
         this.userService.setLogin();
@@ -24,7 +25,16 @@ export class LoginComponent {
 
       },
       error: (error) => {
-         console.log(error)
+        if(error)
+        {
+          console.log(error)
+          this.showMsg=true;
+
+        }
+        else{
+          this.showMsg=false;
+        }
+       
       }
     })
 
