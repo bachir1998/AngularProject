@@ -1,4 +1,4 @@
-"email" : "bachir@gmail.com",
+"email" : "gueyebachir98@gmail.com",
 "password" : "bachirrrrrrrrrrrrrr"
 
 
