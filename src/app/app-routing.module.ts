@@ -9,6 +9,7 @@ import { AuthGuard } from './utils/auth.guard';
 import { DetailsArticleComponent } from './public/articles/details-article/details-article.component';
 import { NewArticleComponent } from './protected/new-article/new-article.component';
 import { HomeAdminComponent } from './protected/back-office/home-admin/home-admin.component';
+import { DetailsArticleAdminComponent } from './protected/details-article-admin/details-article-admin.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
     ]},
     {path : 'admin', component: BackOfficeComponent, canActivate:[AuthGuard],children:[
       {path:'', component:HomeAdminComponent},
-      {path:'newArticle', component:NewArticleComponent}
+      {path:'newArticle', component:NewArticleComponent},
+      {path:'detailsArticle/:id',component:DetailsArticleAdminComponent}
     ]}
 ];
 

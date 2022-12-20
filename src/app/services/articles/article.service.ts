@@ -34,4 +34,17 @@ export class ArticleService {
       return this.httpClient.post<Article>(environment.api.url + 'article', credentials, {headers: headers})
     }
 
+    updateArticle(id:number|null|undefined,credentials: {name?: string | null | undefined, description?: string | null | undefined,categorie?: string | null | undefined,url?: string | null | undefined}): Observable<Article> {
+      const headers = new HttpHeaders().set('apikey', environment.api.key);
+      return this.httpClient.patch<Article>(environment.api.url + 'article?id=eq.'+id,credentials, {headers: headers})
+    }
+
+    deleteArticle(id:number): Observable<Article>{
+      const headers = new HttpHeaders().set('apikey', environment.api.key);
+      return this.httpClient.delete<Article>(environment.api.url + 'article?id=eq.'+id, {
+        headers: headers,
+      });
+
+    }
+
 }

@@ -20,6 +20,7 @@ import { NewArticleComponent } from './protected/new-article/new-article.compone
 import { NavbarBoComponent } from './protected/back-office/navbar-bo/navbar-bo.component';
 import { FooterBoComponent } from './protected/back-office/footer-bo/footer-bo.component';
 import { HomeAdminComponent } from './protected/back-office/home-admin/home-admin.component';
+import { DetailsArticleAdminComponent } from './protected/details-article-admin/details-article-admin.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HomeAdminComponent } from './protected/back-office/home-admin/home-admi
     NavbarBoComponent,
     FooterBoComponent,
     HomeAdminComponent,
+    DetailsArticleAdminComponent,
   ],
   imports: [
     BrowserModule,
